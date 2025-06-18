@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini X Clone</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+    }
+    header {
+      background-color: #1DA1F2;
+      padding: 1rem;
+      text-align: center;
+    }
+    .tweet {
+      border-bottom: 1px solid #333;
+      padding: 1rem;
+    }
+    .tweet h3 {
+      margin: 0 0 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Mini X Clone</h1>
+    </header>
+    <section>
+      <div v-if="loading">Cargando tweets...</div>
+      <div v-else>
+        <div v-for="tweet in tweets" :key="tweet.id" class="tweet">
+          <h3>{{ tweet.author_id }}</h3>
+          <p>{{ tweet.text }}</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
